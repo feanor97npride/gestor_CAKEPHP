@@ -41,9 +41,9 @@
                 <td><?= h($news->photo) ?></td>
                 <td><?= h($news->active) ?></td>
                 <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $news->id], ['class' => 'btn btn-primary', 'id' => 'btn-link']) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $news->id], ['class' => 'btn btn-warning', 'id' => 'btn-link']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $news->id], ['confirm' => __('Tem certeza que deseja remover {0}?', $news->title),'class' => 'btn btn-danger', 'id' => 'btn-link']) ?>
+                <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $news->id], ['class' => 'btn btn-primary', 'id' => 'btn-link']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $news->id], ['class' => 'btn btn-warning', 'id' => 'btn-link']) ?>
+                    <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $news->id], ['confirm' => __('Tem certeza que deseja remover {0}?', $news->title),'class' => 'btn btn-danger', 'id' => 'btn-link']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

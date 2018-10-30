@@ -91,10 +91,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <?= $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-envelope')).' Fale conosco', array('controller' => 'messages', 'action' => 'index'), array('escape' => false, 'class' => 'nav-link'));?>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="../page/createpage.php">
-                    <i class="fa fa-home"></i>
-                    Páginas
-                </a>
+                    <?= $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-home')).' Páginas', array('controller' => 'pages', 'action' => 'index'), array('escape' => false, 'class' => 'nav-link'));?>
                 </li>
                 <li class="nav-item">
                     <?= $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-question')).' FAQ', array('controller' => 'questions', 'action' => 'index'), array('escape' => false, 'class' => 'nav-link'));?>

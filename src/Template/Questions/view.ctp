@@ -4,24 +4,23 @@
  * @var \App\Model\Entity\Question $question
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Question'), ['action' => 'edit', $question->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Question'), ['action' => 'delete', $question->id], ['confirm' => __('Are you sure you want to delete # {0}?', $question->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Questions'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Question'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
+<div class="row">
+    <div class="col-10">
+        <h3><?= __('DADOS DA QUESTÃO') ?></h3>
+    </div>
+    <div class="col-2">
+        <?= $this->Html->link(__('Voltar'), ['action' => 'index'], [ 'class' => 'btn btn-danger']) ?>
+    </div>
+</div>
 <div class="questions view large-9 medium-8 columns content">
     <h3><?= h($question->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table table-dark">
         <tr>
-            <th scope="row"><?= __('Question') ?></th>
+            <th scope="row"><?= __('Pergunta') ?></th>
             <td><?= h($question->question) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Answer') ?></th>
+            <th scope="row"><?= __('Resposta') ?></th>
             <td><?= h($question->answer) ?></td>
         </tr>
         <tr>
@@ -29,16 +28,23 @@
             <td><?= $this->Number->format($question->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Creted At') ?></th>
+            <th scope="row"><?= __('Criação') ?></th>
             <td><?= h($question->creted_at) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Updated At') ?></th>
+            <th scope="row"><?= __('Atualização') ?></th>
             <td><?= h($question->updated_at) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Active') ?></th>
+            <th scope="row"><?= __('Ativo') ?></th>
             <td><?= $question->active ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Ações') ?></th>
+            <td>
+                <?= $this->Html->link(__('Editar'), ['controller' => 'Questions', 'action' => 'edit', $question->id,],[ 'class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postLink(__('Apagar'), ['controller' => 'Questions', 'action' => 'delete', $question->id], ['confirm' => __('Você deseja apagar {0}?', $question->id), 'class' => 'btn btn-danger']) ?>
+            </td>
         </tr>
     </table>
 </div>

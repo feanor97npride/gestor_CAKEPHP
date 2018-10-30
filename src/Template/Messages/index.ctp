@@ -4,31 +4,30 @@
  * @var \App\Model\Entity\Message[]|\Cake\Collection\CollectionInterface $messages
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Message'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+    <div class="row">
+        <div class="col-9">
+            <h3><?= __('Mensagens') ?></h3>
+        </div>
+        <div class="col-1">
+            <?= $this->Html->link(__('Botão para teste (Criar)'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
+        </div>
+    </div>
 <div class="messages index large-9 medium-8 columns content">
-    <h3><?= __('Messages') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-dark" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('creted_at') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('updated_at') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('sender_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('sender_email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('subject') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('active') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Criação') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Atualização') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Nome') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Email') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Titulo') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Ativo') ?></th>
+                <th scope="col" class="actions"><?= __('Ações') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($messages as $message): ?>
             <tr>
-                <td><?= $this->Number->format($message->id) ?></td>
                 <td><?= h($message->creted_at) ?></td>
                 <td><?= h($message->updated_at) ?></td>
                 <td><?= h($message->sender_name) ?></td>
@@ -36,9 +35,8 @@
                 <td><?= h($message->subject) ?></td>
                 <td><?= h($message->active) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $message->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $message->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $message->id], ['confirm' => __('Are you sure you want to delete # {0}?', $message->id)]) ?>
+                    <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $message->id], ['class' => 'btn btn-primary', 'id' => 'btn-link']) ?>
+                    <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $message->id], ['confirm' => __('Deseja apagar {0}?', $message->id),'class'=>'btn btn-danger','id' => 'btn-link']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -49,6 +47,7 @@
             <?= $this->Paginator->first('<< ' . __('first')) ?>
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
             <?= $this->Paginator->numbers() ?>
+            &emsp;
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>

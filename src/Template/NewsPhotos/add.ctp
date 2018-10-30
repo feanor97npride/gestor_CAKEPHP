@@ -4,26 +4,25 @@
  * @var \App\Model\Entity\NewsPhoto $newsPhoto
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List News Photos'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List News'), ['controller' => 'News', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New News'), ['controller' => 'News', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+   <div class="row">
+        <div class="col-10">
+            <h3><?= __('Adicionar foto') ?></h3>
+        </div>
+        <div class="col-1">
+            <?= $this->Html->link(__('Voltar'), ['action' => 'index'], [ 'class' => 'btn btn-danger']) ?>
+        </div>
+    </div>
 <div class="newsPhotos form large-9 medium-8 columns content">
     <?= $this->Form->create($newsPhoto) ?>
     <fieldset>
-        <legend><?= __('Add News Photo') ?></legend>
         <?php
             echo $this->Form->control('created_at');
             echo $this->Form->control('updated_at');
-            echo $this->Form->control('new_id', ['options' => $news]);
-            echo $this->Form->control('photo');
+            echo $this->Form->control('new_id', ['options' => $news,'class' => 'form-control']);
+            echo $this->Form->control('photo',['class' => 'form-control']);
             echo $this->Form->control('active');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar'),['class'=>'btn btn-success']) ?>
     <?= $this->Form->end() ?>
 </div>

@@ -4,23 +4,23 @@
  * @var \App\Model\Entity\Tag $tag
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Tags'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Articles'), ['controller' => 'Articles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Article'), ['controller' => 'Articles', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+<div class="row">
+        <div class="col-10">
+            <h3><?= __('Adicionar tags') ?></h3>
+        </div>
+        <div class="col-2">
+            <?= $this->Html->link(__('Cancelar'), ['action' => 'index'], [ 'class' => 'btn btn-danger']) ?>
+        </div>
+</div>
 <div class="tags form large-9 medium-8 columns content">
     <?= $this->Form->create($tag) ?>
     <fieldset>
-        <legend><?= __('Add Tag') ?></legend>
         <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('articles._ids', ['options' => $articles]);
+            echo $this->Form->control('title',['class'=>'form-control']);
+            echo $this->Form->control('article', ['options' => $articles, 'class'=>'form-control']);
         ?>
+        <br/>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar'),['class'=>'btn btn-success']) ?>
     <?= $this->Form->end() ?>
 </div>

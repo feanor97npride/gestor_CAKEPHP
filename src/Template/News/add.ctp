@@ -54,7 +54,7 @@
         </div>
         
     </fieldset>
-    <?= $this->Form->button(__('Submit'),  array('class' => 'btn btn-success')) ?>
+    <?= $this->Form->button(__('Salvar'),  array('class' => 'btn btn-success')) ?>
     <?= $this->Form->end() ?>
 </div>
 

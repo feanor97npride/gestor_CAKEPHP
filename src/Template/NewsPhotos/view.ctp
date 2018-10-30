@@ -4,20 +4,17 @@
  * @var \App\Model\Entity\NewsPhoto $newsPhoto
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit News Photo'), ['action' => 'edit', $newsPhoto->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete News Photo'), ['action' => 'delete', $newsPhoto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $newsPhoto->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List News Photos'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New News Photo'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List News'), ['controller' => 'News', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New News'), ['controller' => 'News', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+<div class="row">
+    <div class="col-10">
+        <h3><?= __('DADOS DA FOTO') ?></h3>
+    </div>
+    <div class="col-2">
+        <?= $this->Html->link(__('Voltar'), ['action' => 'index'], [ 'class' => 'btn btn-danger']) ?>
+    </div>
+</div>
 <div class="newsPhotos view large-9 medium-8 columns content">
     <h3><?= h($newsPhoto->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table table-dark">
         <tr>
             <th scope="row"><?= __('News') ?></th>
             <td><?= $newsPhoto->has('news') ? $this->Html->link($newsPhoto->news->title, ['controller' => 'News', 'action' => 'view', $newsPhoto->news->id]) : '' ?></td>
@@ -41,6 +38,13 @@
         <tr>
             <th scope="row"><?= __('Active') ?></th>
             <td><?= $newsPhoto->active ? __('Yes') : __('No'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row">Ações</th>
+            <td>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $newsPhoto->id],['class'=>'btn btn-primary']) ?>
+                <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $newsPhoto->id], ['confirm' => __('Deseja apagar {0}?', $newsPhoto->id), 'class' => 'btn btn-danger']) ?>
+            </td>
         </tr>
     </table>
 </div>

@@ -4,39 +4,38 @@
  * @var \App\Model\Entity\Question[]|\Cake\Collection\CollectionInterface $questions
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Question'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+<div class="row">
+    <div class="col-11">
+        <h3><?= __('FAQ') ?></h3>
+    </div>
+    <div class="col-1">
+        <?= $this->Html->link(__('Criar'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
+    </div>
+</div>
 <div class="questions index large-9 medium-8 columns content">
-    <h3><?= __('Questions') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-dark" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('creted_at') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('updated_at') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('question') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('answer') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('active') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Criação') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Atualização') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Pergunta') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Resposta') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Ativo') ?></th>
+                <th scope="col" class="actions"><?= __('Ações') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($questions as $question): ?>
             <tr>
-                <td><?= $this->Number->format($question->id) ?></td>
                 <td><?= h($question->creted_at) ?></td>
                 <td><?= h($question->updated_at) ?></td>
                 <td><?= h($question->question) ?></td>
                 <td><?= h($question->answer) ?></td>
                 <td><?= h($question->active) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $question->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $question->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $question->id], ['confirm' => __('Are you sure you want to delete # {0}?', $question->id)]) ?>
+                    <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $question->id],['class' => 'btn btn-primary','id' => 'btn-link']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $question->id],['class' => 'btn btn-warning','id' => 'btn-link']) ?>
+                    <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $question->id], ['confirm' => __('Deseja apagar {0}?', $question->id),'class'=>'btn btn-danger','id' => 'btn-link']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -47,6 +46,7 @@
             <?= $this->Paginator->first('<< ' . __('first')) ?>
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
             <?= $this->Paginator->numbers() ?>
+            &emsp;
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>

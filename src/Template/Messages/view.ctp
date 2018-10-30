@@ -4,28 +4,26 @@
  * @var \App\Model\Entity\Message $message
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Message'), ['action' => 'edit', $message->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Message'), ['action' => 'delete', $message->id], ['confirm' => __('Are you sure you want to delete # {0}?', $message->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Messages'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Message'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
+<div class="row">
+        <div class="col-10">
+            <h3><?= __('DADOS DA MENSAGEM') ?></h3>
+        </div>
+        <div class="col-1">
+            <?= $this->Html->link(__('Voltar'), ['action' => 'index'], [ 'class' => 'btn btn-danger']) ?>
+        </div>
+</div>
 <div class="messages view large-9 medium-8 columns content">
-    <h3><?= h($message->id) ?></h3>
-    <table class="vertical-table">
+    <table class="vertical-table table table-dark">
         <tr>
-            <th scope="row"><?= __('Sender Name') ?></th>
+            <th scope="row"><?= __('Nome') ?></th>
             <td><?= h($message->sender_name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Sender Email') ?></th>
+            <th scope="row"><?= __('Email') ?></th>
             <td><?= h($message->sender_email) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Subject') ?></th>
+            <th scope="row"><?= __('Titulo') ?></th>
             <td><?= h($message->subject) ?></td>
         </tr>
         <tr>
@@ -33,20 +31,26 @@
             <td><?= $this->Number->format($message->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Creted At') ?></th>
+            <th scope="row"><?= __('Criação') ?></th>
             <td><?= h($message->creted_at) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Updated At') ?></th>
+            <th scope="row"><?= __('Atualização') ?></th>
             <td><?= h($message->updated_at) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Active') ?></th>
-            <td><?= $message->active ? __('Yes') : __('No'); ?></td>
+            <th scope="row"><?= __('Ativo') ?></th>
+            <td><?= $message->active ? __('Sim') : __('Não'); ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Ações') ?></th>
+            <td>
+                <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $message->id], ['confirm' => __('Tem certeza que deseja remover {0}?', $message->subject), 'class' => 'btn btn-danger']) ?>
+            </td>
         </tr>
     </table>
     <div class="row">
         <h4><?= __('Content') ?></h4>
-        <?= $this->Text->autoParagraph(h($message->content)); ?>
     </div>
+        <p><?= $this->Text->autoParagraph(h($message->content)); ?></p>
 </div>
