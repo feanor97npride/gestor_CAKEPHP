@@ -4,6 +4,15 @@
  * @var \App\Model\Entity\Information[]|\Cake\Collection\CollectionInterface $informations
  */
 ?>
+    <div class="row">
+        <div class="col-11">
+            <h3><?= __('Imformações') ?></h3>
+        </div>
+        <div class="col-1">
+            <?= $this->Html->link(__('Criar'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
+        </div>
+    </div>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>

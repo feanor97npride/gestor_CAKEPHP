@@ -9,7 +9,7 @@
             <h3><?= __('Editar Notícia') ?></h3>
         </div>
         <div class="col-1">
-            <?= $this->Html->link(__('Notícias'), ['action' => 'index'], [ 'class' => 'btn btn-dark']) ?>
+            <?= $this->Html->link(__('Voltar'), ['action' => 'index'], [ 'class' => 'btn btn-danger']) ?>
         </div>
 </div>
 
@@ -52,6 +52,6 @@
             ?>
         </div>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), array('class' => 'btn btn-dark')) ?>
+    <?= $this->Form->button(__('Salvar'), array('class' => 'btn btn-success')) ?>
     <?= $this->Form->end() ?>
 </div>

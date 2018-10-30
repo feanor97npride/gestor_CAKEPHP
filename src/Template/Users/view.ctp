@@ -22,7 +22,7 @@
             <td><?= h($user->email) ?></td>
         </tr>
         <tr>
-            <th scope="col"><?= __('Password') ?></th>
+            <th scope="col"><?= __('Senha') ?></th>
             <td><?= h($user->password) ?></td>
         </tr>
         <tr>
@@ -30,11 +30,11 @@
             <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
-            <th scope="col"><?= __('Created') ?></th>
+            <th scope="col"><?= __('Criação') ?></th>
             <td><?= h($user->created) ?></td>
         </tr>
         <tr>
-            <th scope="col"><?= __('Modified') ?></th>
+            <th scope="col"><?= __('Atualização') ?></th>
             <td><?= h($user->modified) ?></td>
         </tr>
         <tr>

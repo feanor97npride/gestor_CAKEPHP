@@ -20,11 +20,11 @@
     <table class="table table-dark" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Email') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Senha') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Criação') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Atualização') ?></th>
+                <th scope="col" class="actions"><?= __('Ações') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -35,9 +35,9 @@
                 <td><?= h($user->created) ?></td>
                 <td><?= h($user->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary', 'id' => 'btn-link']) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'btn btn-warning', 'id' => 'btn-link']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Tem certeza que deseja remover {0}?', $user->email),'class' => 'btn btn-danger', 'id' => 'btn-link']) ?>
+                    <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $user->id], ['class' => 'btn btn-primary', 'id' => 'btn-link']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id], ['class' => 'btn btn-warning', 'id' => 'btn-link']) ?>
+                    <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $user->id], ['confirm' => __('Tem certeza que deseja remover {0}?', $user->email),'class' => 'btn btn-danger', 'id' => 'btn-link']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -4,20 +4,18 @@
  * @var \App\Model\Entity\NewsPhoto[]|\Cake\Collection\CollectionInterface $newsPhotos
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New News Photo'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List News'), ['controller' => 'News', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New News'), ['controller' => 'News', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+<div class="row">
+    <div class="col-11">
+        <h3><?= __('Galeria de fotos') ?></h3>
+    </div>
+    <div class="col-1">
+        <?= $this->Html->link(__('Criar'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
+    </div>
+</div>
 <div class="newsPhotos index large-9 medium-8 columns content">
-    <h3><?= __('News Photos') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-dark" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created_at') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('updated_at') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('new_id') ?></th>
@@ -29,16 +27,15 @@
         <tbody>
             <?php foreach ($newsPhotos as $newsPhoto): ?>
             <tr>
-                <td><?= $this->Number->format($newsPhoto->id) ?></td>
                 <td><?= h($newsPhoto->created_at) ?></td>
                 <td><?= h($newsPhoto->updated_at) ?></td>
                 <td><?= $newsPhoto->has('news') ? $this->Html->link($newsPhoto->news->title, ['controller' => 'News', 'action' => 'view', $newsPhoto->news->id]) : '' ?></td>
                 <td><?= h($newsPhoto->photo) ?></td>
                 <td><?= h($newsPhoto->active) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $newsPhoto->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $newsPhoto->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $newsPhoto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $newsPhoto->id)]) ?>
+                    <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $newsPhoto->id],['class' => 'btn btn-primary', 'id' => 'btn-link']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $newsPhoto->id], ['class' => 'btn btn-warning', 'id' => 'btn-link']) ?>
+                    <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $newsPhoto->id], ['confirm' => __('Deseja apagar {0}?', $newsPhoto->id),'class'=>'btn btn-danger','id' => 'btn-link']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -49,6 +46,7 @@
             <?= $this->Paginator->first('<< ' . __('first')) ?>
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
             <?= $this->Paginator->numbers() ?>
+            &emsp;
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
