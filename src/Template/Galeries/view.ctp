@@ -4,15 +4,13 @@
  * @var \App\Model\Entity\Galery $galery
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Galery'), ['action' => 'edit', $galery->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Galery'), ['action' => 'delete', $galery->id], ['confirm' => __('Are you sure you want to delete # {0}?', $galery->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Galeries'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Galery'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
+<div class="row">
+    <div class="col-10">
+        <h3><?= __('DADOS DE GALERIA') ?></h3>
+    </div>
+    <div class="col-2">
+        <?= $this->Html->link(__('Voltar'), ['action' => 'index'], [ 'class' => 'btn btn-danger']) ?>
+    </div>
 <div class="galeries view large-9 medium-8 columns content">
     <h3><?= h($galery->name) ?></h3>
     <table class="vertical-table">
@@ -46,3 +44,12 @@
         <?= $this->Text->autoParagraph(h($galery->content)); ?>
     </div>
 </div>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('Edit Galery'), ['action' => 'edit', $galery->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Galery'), ['action' => 'delete', $galery->id], ['confirm' => __('Are you sure you want to delete # {0}?', $galery->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Galeries'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Galery'), ['action' => 'add']) ?> </li>
+    </ul>
+</nav>
